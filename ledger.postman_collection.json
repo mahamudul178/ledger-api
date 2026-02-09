@@ -1,0 +1,493 @@
+{
+  "info": {
+    "_postman_id": "12345678-1234-1234-1234-123456789012",
+    "name": "Mini Ledger API",
+    "description": "Complete Ledger Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"testpass123\",\n  \"password_confirm\": \"testpass123\",\n  \"first_name\": \"Test\",\n  \"last_name\": \"User\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/auth/register/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "auth", "register", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"testpass123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/auth/login/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "auth", "login", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Customers",
+      "item": [
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Karim\",\n  \"phone\": \"01700000001\",\n  \"address\": \"dhaka\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/customers/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "customers", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/customers/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "customers", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/customers/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "customers", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Karim Dokandar\",\n  \"phone\": \"01711111111\",\n  \"address\": \"Chattogram\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/customers/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "customers", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/customers/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "customers", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/customers/search/?q=karim",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "customers", "search", ""],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "করিম"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/customers/1/summary/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "customers", "1", "summary", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Ledger Entries",
+      "item": [
+        {
+          "name": "Create CREDIT Entry",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": 1,\n  \"type\": \"CREDIT\",\n  \"amount\": 5000.00,\n  \"note\": \"Rice Purchase\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create DEBIT Entry",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": 1,\n  \"type\": \"DEBIT\",\n  \"amount\": 2000.00,\n  \"note\": \"Payment\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Entries",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Entry",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Entry",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"CREDIT\",\n  \"amount\": 6000.00,\n  \"note\": \"Rice (Updated)\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Entry",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "By Customer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/by_customer/?customer_id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", "by_customer", ""],
+              "query": [
+                {
+                  "key": "customer_id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by Date",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/filter_by_date/?customer_id=1&start_date=2024-01-01&end_date=2024-12-31",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", "filter_by_date", ""],
+              "query": [
+                {
+                  "key": "customer_id",
+                  "value": "1"
+                },
+                {
+                  "key": "start_date",
+                  "value": "2024-01-01"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2024-12-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by Type",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/filter_by_type/?customer_id=1&type=CREDIT",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", "filter_by_type", ""],
+              "query": [
+                {
+                  "key": "customer_id",
+                  "value": "1"
+                },
+                {
+                  "key": "type",
+                  "value": "CREDIT"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/ledger-entries/statistics/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "ledger-entries", "statistics", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
